@@ -441,6 +441,16 @@ The initial prompt generated multiple generic taglines but lacked a specific tar
 
 
 ## 1.3 Role and Context Analysis
+### Role and Context Analysis
+
+Role assignment and context setting significantly improved the quality of the AI-generated responses throughout this exercise. In Scenario A, assigning the role of an elementary school teacher encouraged the model to use simpler language, relatable analogies, and a teaching style that was appropriate for a 10-year-old audience. This made the explanation more engaging and easier to understand.
+
+In Scenario B, assigning the role of an HR professional and providing context that the candidate had accepted another opportunity resulted in a more realistic and professional email. The additional context helped the model generate a response that aligned with real-world business communication practices.
+
+In Scenario C, defining the role as a marketing copywriter and specifying the target audience as environmentally conscious young professionals produced more focused and relevant marketing content. The final output better reflected the brand identity and values of the intended audience.
+
+Overall, role assignment helped shape the model's expertise and communication style, while context setting ensured that the responses were tailored to the intended audience and objective.
+
 
 ---
 
