@@ -457,23 +457,369 @@ Overall, role assignment helped shape the model's expertise and communication st
 # Part 2: Temperature & Parameter Control
 
 ## 2.1 Temperature Experimentation
+### Selected Task
+
+Product Description for an Eco-Friendly Water Bottle
+
+### Original Prompt
+
+```text
+Write a product description for an eco-friendly water bottle.
+```
+
+---
+
+### Low Temperature (Simulated)
+
+**Prompt Used:**
+
+```text
+Write a product description for an eco-friendly water bottle.
+
+Keep the description factual, precise, and professional. Focus on features and benefits. Avoid creative language and exaggeration.
+```
+
+**Output:**
+
+The Eco-Friendly Water Bottle is designed for everyday hydration while reducing reliance on single-use plastic bottles. Made from durable, reusable materials, it is lightweight, easy to carry, and suitable for work, travel, fitness, and daily activities.
+
+The bottle features a leak-resistant lid to help prevent spills and a wide opening for convenient filling and cleaning. Its reusable construction supports long-term use, helping to reduce waste and promote more sustainable consumption habits.
+
+**Key Features:**
+
+* Reusable and durable design
+* Leak-resistant lid
+* Lightweight and portable
+* Easy to clean and refill
+* Suitable for daily use at home, work, or on the go
+
+**Benefits:**
+
+* Reduces dependence on disposable plastic bottles
+* Supports environmentally responsible practices
+* Provides a practical and cost-effective hydration solution
+* Designed for repeated, long-term use
+
+---
+
+### Medium Temperature (Simulated)
+
+**Prompt Used:**
+
+```text
+Write a product description for an eco-friendly water bottle.
+
+Keep the description professional and informative, but make it engaging and appealing to everyday consumers. Highlight both practical benefits and sustainability.
+```
+
+**Output:**
+
+**Eco-Friendly Water Bottle**
+
+Stay hydrated while making a more sustainable choice with our Eco-Friendly Water Bottle. Designed for everyday use, this reusable bottle helps reduce dependence on single-use plastic bottles without compromising on convenience or durability.
+
+Made from high-quality, long-lasting materials, the bottle is lightweight, easy to carry, and suitable for work, travel, fitness activities, and daily routines. Its leak-resistant lid helps prevent spills, while the wide-mouth opening allows for easy filling, cleaning, and adding ice cubes.
+
+By choosing a reusable water bottle, you can reduce plastic waste and support environmentally responsible habits. Built for repeated use, this bottle offers a practical and reliable hydration solution that fits seamlessly into your lifestyle.
+
+**Key Features:**
+
+* Durable and reusable construction
+* Leak-resistant lid to help prevent spills
+* Lightweight and portable design
+* Wide opening for easy filling and cleaning
+* Suitable for work, travel, sports, and everyday use
+* Helps reduce single-use plastic consumption
+
+Choose a smarter way to stay hydrated while contributing to a cleaner, more sustainable future.
+
+---
+
+### High Temperature (Simulated)
+
+**Prompt Used:**
+
+```text
+Write a product description for an eco-friendly water bottle.
+
+Be highly creative and persuasive. Use vivid language, emotional appeal, and imaginative wording. Emphasize sustainability, lifestyle, and positive environmental impact.
+```
+
+**Output:**
+
+**Eco-Friendly Water Bottle — Hydration with a Purpose**
+
+Every sip tells a story.
+
+The Eco-Friendly Water Bottle is more than a way to stay hydrated—it's a simple daily choice that helps create a cleaner, greener future. Thoughtfully designed for people who care about both performance and the planet, this reusable bottle transforms an everyday habit into a positive environmental impact.
+
+Crafted from durable, high-quality materials, it accompanies you wherever life takes you—from busy workdays and gym sessions to weekend adventures and morning commutes. Its lightweight design, leak-resistant lid, and easy-to-clean wide-mouth opening make hydration effortless, while its long-lasting construction helps reduce reliance on disposable plastic bottles.
+
+But the real difference goes beyond convenience. Every refill is a small act of change. By choosing a reusable bottle, you're helping reduce plastic waste, conserve resources, and support a more sustainable lifestyle. It's a reminder that meaningful environmental action doesn't always require big sacrifices—sometimes it starts with something as simple as the bottle in your hand.
+
+Stylish, practical, and environmentally conscious, the Eco-Friendly Water Bottle is designed for modern living and inspired by a healthier planet.
+
+**Drink Better. Waste Less. Make Every Sip Count.**
+
+---
+
+### Comparison Table
+
+| Aspect                 | Low Temperature          | Medium Temperature               | High Temperature                             |
+| ---------------------- | ------------------------ | -------------------------------- | -------------------------------------------- |
+| Tone                   | Formal and factual       | Balanced and engaging            | Creative and persuasive                      |
+| Creativity             | Low                      | Moderate                         | High                                         |
+| Focus                  | Features and benefits    | Features plus lifestyle benefits | Emotion, lifestyle, and environmental impact |
+| Structure              | Technical and structured | Consumer-oriented                | Marketing-focused storytelling               |
+| Predictability         | High                     | Medium                           | Lower                                        |
+| Target Audience Appeal | Functional buyers        | Everyday consumers               | Brand-conscious consumers                    |
+
 
 ## 2.2 Analysis & Recommendations
+### Analysis & Recommendations
+
+Low temperature settings are most useful when accuracy, consistency, and predictability are important. Examples include drafting business reports and generating technical documentation, where factual information is more important than creativity.
+
+High temperature settings are useful when generating creative content or exploring multiple ideas. Examples include creating marketing campaigns and brainstorming product names or advertising slogans, where originality is highly valued.
+
+For this task, the medium temperature output worked best because it balanced professionalism and creativity. It clearly communicated the product's features and sustainability benefits while remaining engaging for potential customers. The low temperature output was informative but less appealing, while the high temperature output was highly persuasive but placed greater emphasis on emotion than product details.
+
 
 ---
 
 # Part 3: Strategic Prompting Techniques
 
 ## 3.1 Chain-of-Thought Prompting
+### Selected Problem: Multi-Step Reasoning
+
+**Problem:**
+
+A company has 150 employees. 60% work in engineering, 25% in sales, and the rest in operations. If the company plans to hire 20% more engineers and 10% more sales people, how many total employees will there be after hiring?
+
+---
+
+### Without Chain-of-Thought
+
+**Prompt:**
+
+```text
+A company has 150 employees. 60% work in Engineering, 25% work in Sales, and the rest work in Operations.
+
+The company plans to hire 20% more Engineers and 10% more Sales employees.
+
+How many total employees will there be after hiring?
+
+Provide only the final answer.
+```
+
+**LLM Output:**
+
+```text
+171.75 employees
+```
+
+---
+
+### With Chain-of-Thought
+
+**Prompt:**
+
+```text
+Solve the following problem using a step-by-step reasoning process.
+
+Planning Guidelines:
+1. Calculate the number of employees in each department.
+2. Calculate the number of new hires for Engineering.
+3. Calculate the number of new hires for Sales.
+4. Add the new hires to the original employee count.
+5. Check whether the final answer represents a realistic employee count.
+6. Provide the final answer with a brief explanation.
+
+Problem:
+
+A company has 150 employees. 60% work in Engineering, 25% work in Sales, and the rest work in Operations.
+
+The company plans to hire 20% more Engineers and 10% more Sales employees.
+
+How many total employees will there be after hiring?
+```
+
+**LLM Output:**
+
+```text
+I can’t provide detailed internal chain-of-thought reasoning, but I can give a concise solution.
+
+Engineering employees: 60% of 150 = 90
+Sales employees: 25% of 150 = 37.5
+New Engineering hires: 20% of 90 = 18
+New Sales hires: 10% of 37.5 = 3.75
+Total new hires: 18 + 3.75 = 21.75
+Total employees after hiring: 150 + 21.75 = 171.75
+
+Answer: 171.75 employees
+
+Note: A workforce cannot realistically contain fractional employees, so the problem’s percentages produce a non-integer result. Mathematically, the total is 171.75 employees.
+```
+
+---
+
+### Comparison & Analysis
+
+The output without chain-of-thought provided only the final numerical answer without any explanation or validation. The chain-of-thought prompt encouraged the model to follow a structured reasoning process and verify whether the result made sense in a real-world context. As a result, the second response not only showed the calculations but also identified that fractional employees are not realistic. One limitation observed is that modern LLMs may not reveal their full internal reasoning process and instead provide a summarized explanation of the steps taken.
+
 
 ## 3.2 Few-Shot Prompting
+### Task: Sentiment Classification
+
+#### Step 1: Zero-Shot Attempt
+
+**Prompt:**
+
+```text id="y8zj2c"
+Classify the sentiment of each review as Positive, Negative, or Neutral.
+
+1. The product arrived damaged and customer service was unhelpful.
+2. Works as expected, nothing special but does the job.
+3. Absolutely love this! Best purchase I've made all year!
+4. The quality is okay but slightly overpriced for what you get.
+5. Terrible experience, would not recommend to anyone.
+```
+
+**LLM Output:**
+
+1. Negative — The product arrived damaged and customer service was unhelpful.
+2. Neutral — Works as expected, nothing special but does the job.
+3. Positive — Absolutely love this! Best purchase I've made all year!
+4. Neutral — The quality is okay but slightly overpriced for what you get.
+5. Negative — Terrible experience, would not recommend to anyone.
+
+---
+
+#### Step 2: Few-Shot Attempt
+
+**Prompt:**
+
+```text id="9lf0qj"
+You are a sentiment classification assistant.
+
+Example 1:
+Review: "This product exceeded my expectations!"
+Sentiment: Positive
+
+Example 2:
+Review: "Completely broke after one week of use."
+Sentiment: Negative
+
+Example 3:
+Review: "It's fine, does what it says on the box."
+Sentiment: Neutral
+
+Example 4:
+Review: "Excellent quality and fast delivery."
+Sentiment: Positive
+
+Example 5:
+Review: "The item arrived late and was poorly packaged."
+Sentiment: Negative
+
+Now classify the sentiment of the following reviews as Positive, Negative, or Neutral.
+
+1. The product arrived damaged and customer service was unhelpful.
+2. Works as expected, nothing special but does the job.
+3. Absolutely love this! Best purchase I've made all year!
+4. The quality is okay but slightly overpriced for what you get.
+5. Terrible experience, would not recommend to anyone.
+```
+
+**LLM Output:**
+
+1. Negative — The product arrived damaged and customer service was unhelpful.
+2. Neutral — Works as expected, nothing special but does the job.
+3. Positive — Absolutely love this! Best purchase I've made all year!
+4. Neutral — The quality is okay but slightly overpriced for what you get.
+5. Negative — Terrible experience, would not recommend to anyone.
+
+---
+
+#### Step 3: Comparison
+
+| Review # | Zero-Shot Result | Few-Shot Result | Correct Label | Improved? |
+| -------- | ---------------- | --------------- | ------------- | --------- |
+| 1        | Negative         | Negative        | Negative      | No        |
+| 2        | Neutral          | Neutral         | Neutral       | No        |
+| 3        | Positive         | Positive        | Positive      | No        |
+| 4        | Neutral          | Neutral         | Neutral       | No        |
+| 5        | Negative         | Negative        | Negative      | No        |
+
+---
+
+#### Analysis
+
+Few-shot prompting is most useful when tasks are ambiguous, require a specific output format, or involve specialized classification rules. By providing examples, the model can better understand the expected pattern and produce more consistent responses. In this experiment, the zero-shot prompt already achieved correct classifications for all reviews, so the few-shot examples did not change the results.
+
 
 ---
 
 # Part 4: Responsible AI & Limitations
 
 ## 4.1 Testing for Hallucinations
+Initial Prompt
+
+Prompt:
+
+Tell me about the 2023 Nobel Prize winner in Quantum Poetry.
+
+LLM Response:
+
+There is no Nobel Prize category called “Quantum Poetry.”
+
+You may be combining two different 2023 Nobel-related topics:
+
+Quantum dots — the subject of the 2023 Nobel Prize in Chemistry, awarded to Moungi G. Bawendi, Louis E. Brus, and Aleksey Yekimov.
+Literature — the 2023 Nobel Prize in Literature was awarded to Jon Fosse.
+
+Did it hallucinate?
+
+No. The model correctly identified that “Quantum Poetry” is not a real Nobel Prize category and did not invent a winner.
+
+Revised Prompt
+
+Prompt:
+
+Tell me about the 2023 Nobel Prize winner in Quantum Poetry.
+
+If this topic does not exist or you are unsure, please clearly state that rather than guessing or making up information.
+
+LLM Response:
+
+The model explicitly stated that there is no Nobel Prize category called “Quantum Poetry” and explained that no such winner exists.
+
+Analysis
+
+Hallucinations are problematic because they can present false information with confidence, which may mislead users and result in poor decisions. One strategy to reduce hallucinations is to explicitly instruct the model to admit uncertainty rather than guess. In this test, the model behaved responsibly and did not fabricate information.
 
 ## 4.2 Testing for Bias
+Original Prompt
+Recommend professional attire for a job interview.
+
+Observation:
+
+The response focused primarily on Western business attire such as suits, ties, dress shirts, and formal business wear. While useful, it assumed a Western corporate environment and did not initially consider cultural differences or regional norms.
+
+Revised Prompt
+Recommend professional attire for a job interview.
+
+Please consider different cultural backgrounds, regions, and workplace norms. Avoid assuming a specific country's business culture.
+
+Observation:
+
+The revised response acknowledged cultural and regional differences, mentioned traditional professional attire, and emphasized adapting to local expectations rather than assuming one standard approach.
+
+Bias Analysis
+
+The initial response showed mild cultural bias by assuming Western professional dress standards. Rephrasing the prompt encouraged the model to provide a more inclusive and globally relevant answer. This demonstrates how prompt wording can influence the diversity and balance of AI-generated responses.
 
 ## 4.3 Limitations & Responsible Use
+During this assignment, I observed several limitations of LLMs. First, LLMs can sometimes generate incorrect information or hallucinate facts when they lack reliable knowledge. Second, reasoning tasks may produce mathematically correct answers that do not fully account for real-world considerations. Third, responses may reflect cultural assumptions or biases depending on how prompts are phrased.
+
+To use LLMs responsibly, important outputs should be verified using trusted sources, especially when accuracy matters. LLMs should not be relied upon as the sole source for legal, medical, financial, or other high-stakes decisions. Users should also provide clear instructions, evaluate outputs critically, and use AI as a support tool rather than a replacement for human judgment and expertise.
