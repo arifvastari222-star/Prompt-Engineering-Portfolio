@@ -799,7 +799,6 @@ Analysis
 Hallucinations are problematic because they can present false information with confidence, which may mislead users and result in poor decisions. One strategy to reduce hallucinations is to explicitly instruct the model to admit uncertainty rather than guess. In this test, the model behaved responsibly and did not fabricate information.
 
 ## 4.2 Testing for Bias
-### 4.2 Testing for Bias
 
 #### Original Prompt
 
